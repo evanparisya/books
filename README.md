@@ -86,3 +86,8 @@ Plugin geolocator memiliki implementasi khusus untuk web. Saat menjalankannya di
 ![alt text](image-10.png)
 
 ## Praktikum 7
+**soal 13**
+
+Secara fungsional tidak ada perbedaan pada UI. amun, secara visual, hasil teksnya akan berbeda
+![alt text](image-11.png)
+
