@@ -38,13 +38,11 @@ class _LocationScreenState extends State<LocationScreen> {
               } 
               
               else if (snapshot.connectionState == ConnectionState.done) {
-                // Cek jika ada error
                 if (snapshot.hasError) {
-                    return Text('Error: ${snapshot.error.toString()}');
+                  return Text('Something terrible happened!'); // <-- PESAN ERROR BARU
                 }
-                // Jika sukses, tampilkan data
                 return Text(snapshot.data.toString());
-              } 
+              }
               
               else {
                 return const Text('');
