@@ -34,6 +34,31 @@ class FuturePage extends StatefulWidget {
 class _FuturePageState extends State<FuturePage> {
   String result = '';
 
+  Future returnError() async {
+    await Future.delayed(const Duration(seconds: 2));
+    throw Exception('Something terrible happened!');
+  }
+
+  void returnFG() {
+  // Menggunakan Future.wait sesuai instruksi gambar
+  final futures = Future.wait<int>([
+    returnOneAsync(),
+    returnTwoAsync(),
+    returnThreeAsync(),
+  ]);
+
+  // Handler .then (logika ini sama persis dengan sebelumnya)
+  futures.then((List<int> value) {
+    int total = 0;
+    for (var element in value) {
+      total += element;
+    }
+    setState(() {
+      result = total.toString();
+    });
+  });
+}
+
   late Completer completer;
 
   Future getNumber() {
@@ -101,14 +126,7 @@ class _FuturePageState extends State<FuturePage> {
               child: Text('GO!'),
               onPressed: () {
                 // count();
-
-                getNumber().then((value) {
-                  setState(() {
-                    result = value.toString();
-                  });
-                }).catchError((e) {
-                  result = 'An error occurred';
-                });
+                returnFG();
               },
             ),
             const Spacer(),

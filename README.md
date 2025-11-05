@@ -52,3 +52,14 @@ Kode Langkah 5 & 6 membangun alur penanganan kesalahan yang lengkap:
 - Langkah 6 memastikan pemanggil (UI) dapat menangani kedua hasil tersebut, yaitu menampilkan data jika sukses (.then) atau menampilkan pesan error jika gagal (.catchError).
 
 ![alt text](image-5.png)
+
+## Praktikum 4
+**soal 7**
+
+![alt text](image-6.png)
+
+**soal 8**
+
+Langkah 4 adalah penyederhanaan (refactor) dari Langkah 1. Keduanya sama-sama menjalankan tiga fungsi (returnOneAsync, returnTwoAsync, returnThreeAsync) secara paralel/bersamaan.
+
+## Praktikum 5
