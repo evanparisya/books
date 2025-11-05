@@ -1,10 +1,12 @@
 import 'dart:async';
 import 'package:async/async.dart';
+import 'package:books/navigation_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
 import 'geolocation.dart';
 import 'navigation_first.dart';
+import 'navigation_dialog.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const NavigationFirst(),
+      home: const NavigationDialogScreen(),
     );
   }
 }
@@ -36,18 +38,14 @@ class FuturePage extends StatefulWidget {
 class _FuturePageState extends State<FuturePage> {
   String result = '';
 
-
-
   Future handleError() async {
     try {
       await returnError();
-    }
-    catch (error) {
+    } catch (error) {
       setState(() {
         result = error.toString();
       });
-    }
-    finally {
+    } finally {
       print('Complete');
     }
   }
@@ -58,24 +56,24 @@ class _FuturePageState extends State<FuturePage> {
   }
 
   void returnFG() {
-  // Menggunakan Future.wait sesuai instruksi gambar
-  final futures = Future.wait<int>([
-    returnOneAsync(),
-    returnTwoAsync(),
-    returnThreeAsync(),
-  ]);
+    // Menggunakan Future.wait sesuai instruksi gambar
+    final futures = Future.wait<int>([
+      returnOneAsync(),
+      returnTwoAsync(),
+      returnThreeAsync(),
+    ]);
 
-  // Handler .then (logika ini sama persis dengan sebelumnya)
-  futures.then((List<int> value) {
-    int total = 0;
-    for (var element in value) {
-      total += element;
-    }
-    setState(() {
-      result = total.toString();
+    // Handler .then (logika ini sama persis dengan sebelumnya)
+    futures.then((List<int> value) {
+      int total = 0;
+      for (var element in value) {
+        total += element;
+      }
+      setState(() {
+        result = total.toString();
+      });
     });
-  });
-}
+  }
 
   late Completer completer;
 
@@ -88,11 +86,10 @@ class _FuturePageState extends State<FuturePage> {
   calculate() async {
     try {
       // Kata 'new' opsional, boleh dipakai/tidak sesuai gambar
-      await new Future.delayed(const Duration(seconds : 5));
+      await new Future.delayed(const Duration(seconds: 5));
       completer.complete(42);
       // throw Exception();
-    }
-    catch (_) {
+    } catch (_) {
       completer.completeError({});
     }
   }
@@ -129,13 +126,10 @@ class _FuturePageState extends State<FuturePage> {
     return http.get(url);
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Back from the Future'),
-      ),
+      appBar: AppBar(title: const Text('Back from the Future')),
       body: Center(
         child: Column(
           children: [
@@ -143,8 +137,7 @@ class _FuturePageState extends State<FuturePage> {
             ElevatedButton(
               child: Text('GO!'),
               onPressed: () {
-                // Panggil method dari Langkah 4
-                handleError();
+                _showColorDialog(context);
               },
             ),
             const Spacer(),
