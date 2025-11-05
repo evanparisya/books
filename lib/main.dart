@@ -3,6 +3,7 @@ import 'package:async/async.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
+import 'geolocation.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,12 +15,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Future Demo',
+      title: 'Future Demo - Evan',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const FuturePage(),
+      home: const LocationScreen(),
     );
   }
 }
@@ -33,6 +34,22 @@ class FuturePage extends StatefulWidget {
 
 class _FuturePageState extends State<FuturePage> {
   String result = '';
+
+
+
+  Future handleError() async {
+    try {
+      await returnError();
+    }
+    catch (error) {
+      setState(() {
+        result = error.toString();
+      });
+    }
+    finally {
+      print('Complete');
+    }
+  }
 
   Future returnError() async {
     await Future.delayed(const Duration(seconds: 2));
@@ -125,16 +142,8 @@ class _FuturePageState extends State<FuturePage> {
             ElevatedButton(
               child: Text('GO!'),
               onPressed: () {
-                returnError()
-                  .then((value){
-                    setState(() {
-                      result = 'Success';
-                    });
-                  }).catchError((onError){
-                    setState(() {
-                      result = onError.toString();
-                    });
-                  }).whenComplete(() => print('Complete'));
+                // Panggil method dari Langkah 4
+                handleError();
               },
             ),
             const Spacer(),

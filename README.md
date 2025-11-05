@@ -66,3 +66,23 @@ Langkah 4 adalah penyederhanaan (refactor) dari Langkah 1. Keduanya sama-sama me
 **soal 9**
 
 ![alt text](image-7.png)
+
+**soal 10**
+
+![alt text](image-8.png)
+
+Langkah 1 adalah cara klasik untuk menangani Future sebelum async/await ada.
+
+Langkah 4 (async/await) adalah cara yang lebih modern, bersih, dan mudah dibaca karena memungkinkan untuk menangani error asinkron menggunakan sintaks try...catch
+
+## Praktikum 6
+**soal 11**
+
+![alt text](image-9.png)
+
+**soal 12**
+
+Plugin geolocator memiliki implementasi khusus untuk web. Saat menjalankannya di browser, plugin ini tidak mengakses chip GPS perangkat secara langsung (seperti di HP).
+![alt text](image-10.png)
+
+## Praktikum 7
