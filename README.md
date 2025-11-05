@@ -40,3 +40,15 @@ Kode ini menunjukkan alternatif non-tradisional untuk membuat dan mengontrol Fut
 - Kode di onPressed() yang menunggu getNumber().then(...) akan menerima nilai 42 setelah 5 detik berlalu.
 
 ![alt text](image-4.png)
+
+**soal 6**
+
+Langkah 2 hanya mengurus skenario sukses dan akan menggantung jika terjadi error.
+
+Kode Langkah 5 & 6 membangun alur penanganan kesalahan yang lengkap:
+
+- Langkah 5 memastikan Future selalu selesai, baik dengan sukses (complete) atau gagal (completeError).
+
+- Langkah 6 memastikan pemanggil (UI) dapat menangani kedua hasil tersebut, yaitu menampilkan data jika sukses (.then) atau menampilkan pesan error jika gagal (.catchError).
+
+![alt text](image-5.png)
