@@ -95,3 +95,13 @@ Secara fungsional tidak ada perbedaan pada UI. amun, secara visual, hasil teksny
 
 Ya, ada perbedaan, namun hanya jika terjadi error.
 ![alt text](image-12.png)
+
+## Praktikum 8
+**soal 15**
+
+![alt text](image-13.png)
+
+**soal 16**
+
+![alt text](image-14.png)
+![alt text](image-15.png)
