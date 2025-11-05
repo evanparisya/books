@@ -63,3 +63,6 @@ Kode Langkah 5 & 6 membangun alur penanganan kesalahan yang lengkap:
 Langkah 4 adalah penyederhanaan (refactor) dari Langkah 1. Keduanya sama-sama menjalankan tiga fungsi (returnOneAsync, returnTwoAsync, returnThreeAsync) secara paralel/bersamaan.
 
 ## Praktikum 5
+**soal 9**
+
+![alt text](image-7.png)
